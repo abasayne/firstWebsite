@@ -2,16 +2,9 @@
     box-sizing: border-box;
 }
 html{
-    display:grid;
-    width: 100%;
-    grid-template-rows: 1fr 4fr 2fr 4fr 1fr 1fr / repeat(12, 1fr);
-    grid-template-areas: "header "
-                         "banner"
-                         "mission"
-                         "section"
-                         "section"
-                         "footer";
+    max-width: 100%;
     background-color: #473C59;
+    background-size: 100%;
 }
 h1{
     font-size: 65px;
@@ -30,13 +23,11 @@ h3{
 }
 /*navigation*/
 header{
-    grid-area: header;
-    grid-column-start: 1;
-    grid-column-end: 12;
     background-color:#BF281B ;
     color: #F2CDAC;
     margin: 0 auto;
     max-width: 100%;
+    background-size: 100%;
 
 
 }
@@ -78,14 +69,9 @@ nav li{
     padding-right: 30px;
     font-size: 17px;
     font-weight: 400 px;
-
 }
 /*banner*/
-.banner{
-    grid-area: banner;
-    grid-column-start: 1 ;
-    grid-column-end: 12;
-}
+
 .banner img{
     max-width: 100%;
     background-position: center;
@@ -139,6 +125,7 @@ section{
     justify-content: space-evenly;
     text-align: center;
     margin: 50px auto;
+    flex: 1 1 100%;
 }
 .container img{
     max-width: 380px;
@@ -146,6 +133,8 @@ section{
 }
 .webdesign{
     display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
 
 }
 .webdesign .webdesbackground{
@@ -155,17 +144,17 @@ section{
 .webdestext{
     position: absolute;
     align-self: center;
-    padding-left: 60px;
+
 }
 .uxui{
  display: flex;
+ flex-basis: 100%;
  align-content: center;
 
 }
 .uxuitext{
     position: absolute;
-    padding-left: 60px;
-    padding-top: 110px;
+    align-self: center;
 }
 .uxuibackground{
     align-self: center;
@@ -173,11 +162,11 @@ section{
 }
 .graphicdesign{
     display: flex;
+    flex-basis: 100%;
 }
 .graphictext{
     position: absolute;
     align-self: center;
-    padding-left: 60px;
 }
 .graphicbackground{
     align-self: center;
@@ -215,9 +204,6 @@ section{
 }
 /*footer*/
 footer{
-    grid-area: "footer";
-    grid-column-start: 1;
-    grid-column-end: 12;
     background-color:#A69177 ;
     color: #F2CDAC;
     margin: 0 auto;
@@ -258,39 +244,72 @@ button:hover{
         cursor:pointer;
 }
 /*mediaqueries 380px*/
-@media only screen and (max-width:380px){
-    header{
-        height: 176px;
-        margin: 0 auto;
-        align-content: center;
-
-    }
-
+@media (max-width: 380px){
     .navtext{
         visibility: hidden;
+        display: none;
+    }
+    .navcont{
+        align-content: center;
+        justify-content: center;
 
     }
     .navtitle img{
-        max-width: 500px;
-        padding: 0;
+        max-width: 200px;
+    }
+    header{
+        max-width:  100%;
+        align-content: center;
+        background-size: auto;
 
     }
     .mission img{
         visibility: hidden;
+        display: none;
     }
     .missiontext{
-        display: inline-block;
-        position: absolute;
-        
+        align-content: center;
+        justify-content: center;
     }
-    .missiontext h2{
-        visibility: hidden;
+    h2{
+        text-align: center;
+    }
+    h3{
+        text-align: center;
+    }
+    .banner img{
+        max-width: 100%;
+        background-position: center;
     }
     .container{
         flex-wrap: wrap;
     }
-    .banner img{
-        max-width: 90%;
-        background-position: center;
+    .container img{
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+        max-width: 300px;
+    }
+    html{
+        flex: 1 1 100%;
+    }
+    .quote h2{
+        font-size: 20px;
+    }
+
+}
+@media (max-width: 800px){
+    .navtext{
+        visibility: hidden;
+        display: none;
+    }
+    .navcont{
+        align-content: center;
+        justify-content: center;
+
+    }
+    .navtitle{
+        align-content: center;
+        justify-content: center;
+        padding: 20px 20px;
     }
 }
